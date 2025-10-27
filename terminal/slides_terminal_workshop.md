@@ -354,7 +354,7 @@ APIキーを`.zshrc`に記載すると、キーが漏洩する危険があるの
 - ローカルのリポジトリやファイルに対して、指示に基づく提案・変更を対話的に行う
 - 初回起動時にブラウザでサインインし、すぐに使い始められる
 
-参考: 
+参考:
 
 - <https://openai.com/ja-JP/codex/>
 - <https://platform.openai.com/docs/codex>
