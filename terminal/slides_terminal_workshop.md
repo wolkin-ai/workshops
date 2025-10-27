@@ -96,30 +96,33 @@ Finderの下にフォルダの階層が表示されるようにする方法：
 
 最終的にどのようなディレクトリ構造になったかを確認して下さい。
 
-
 ## 5. Cursorでターミナルを使う
 
 ### Cursorのターミナル機能とは
+
 - Cursorは統合開発環境（IDE）として、ターミナル機能を内蔵している
 - エディタとターミナルを同じ画面で操作できるため、コマンド実行とコード編集を効率的に行える
 - AIアシスタントが提案するコマンドを、その場で実行して確認できる
 
 ### Cursorのターミナルを開く方法
+
 1. **メニューから開く**
    - メニューバーの「View」→「Terminal」を選択
 2. **ショートカットキーで開く**
-   - `Ctrl + `` (バッククォート) または `Ctrl + J` を押す
+   - `Ctrl + `` (バッククォート) または`Ctrl + J` を押す
 3. **コマンドパレットから開く**
    - `Cmd + Shift + P` (Mac) または `Ctrl + Shift + P` (Windows/Linux) でコマンドパレットを開く
    - 「Terminal」と入力して「View: Toggle Terminal」を選択
 
 ### Cursorのターミナルの特徴
+
 - **統合された操作**：エディタでファイルを開きながら、同じ画面でコマンドを実行できる
 - **複数ターミナル**：`+`ボタンで複数のターミナルを開き、並行して作業できる
 - **AIとの連携**：AIが提案したコマンドをコピー&ペーストして実行できる
 - **履歴機能**：実行したコマンドの履歴が残り、再実行が容易
 
 ### 実践例：Cursorでターミナルを使う
+
 1. Cursorでプロジェクトフォルダを開く
 2. ターミナルを開く（`Ctrl + ``）
 3. `pwd`で現在地を確認
@@ -129,7 +132,7 @@ Finderの下にフォルダの階層が表示されるようにする方法：
 
 ## 6. ターミナルからAPIを操作してみる
 
-### 目的
+### APIを操作する目的
 
 - `curl`コマンドでAPIが実行できることを理解する
 - Cursorは`curl`コマンドを実行できることをことを理解する
@@ -148,7 +151,6 @@ Finderの下にフォルダの階層が表示されるようにする方法：
   - `-o`: レスポンスをファイルに保存
 - APIの動作確認やデバッグに重宝するツール
 
-
 ### JSONPlaceholder APIを使った演習
 
 JSONPlaceholderは、認証不要で使えるテスト用の無料APIサービスです。`curl`コマンドでAPIが実行できることを体験してみましょう。
@@ -160,6 +162,7 @@ curl https://jsonplaceholder.typicode.com/posts/1
 ```
 
 **レスポンス例：**
+
 ```json
 {
   "userId": 1,
@@ -178,6 +181,7 @@ curl -X POST https://jsonplaceholder.typicode.com/posts \
 ```
 
 **レスポンス例：**
+
 ```json
 {
   "title": "My Post",
@@ -193,12 +197,12 @@ curl -X POST https://jsonplaceholder.typicode.com/posts \
 
 OpenAI APIは、GPTモデルを使ったテキスト生成やチャット機能を提供するAPIです。実際にAPIを呼び出して、AIの応答を体験してみましょう。
 
-#### 事前準備
+### 事前準備
 
-1. OpenAI APIキーを取得（https://platform.openai.com/api-keys）
+1. OpenAI APIキーを取得（<https://platform.openai.com/api-keys>）
 2. メモ帳にAPIキーを保存するなどしておく
 
-#### チャット補完APIの呼び出し
+### チャット補完APIの呼び出し
 
 まずはそのまま実行：
 
@@ -214,7 +218,7 @@ curl https://api.openai.com/v1/responses \
 
 **結果**：認証エラー
 
-#### 環境変数とは
+### 環境変数とは
 
 `$OPENAI_API_KEY`が空。`$`で始まる文字列は**環境変数**と呼ばれ、プログラムやコマンドが参照できる設定値
 
@@ -226,7 +230,7 @@ echo $OPENAI_API_KEY
 
 **結果**：何も表示されない
 
-#### 環境変数を設定する
+### 環境変数を設定する
 
 `export`コマンドを使って環境変数を設定します：
 
@@ -242,7 +246,7 @@ echo $OPENAI_API_KEY
 
 **結果**：設定したAPIキーが表示される
 
-#### 再度APIを実行
+### 再度APIを実行
 
 もう一度curlコマンドを実行してみましょう：
 
@@ -258,7 +262,7 @@ curl https://api.openai.com/v1/responses \
 
 **結果**：成功。AIからの応答が返ってくる。
 
-#### 環境変数の永続化
+### 環境変数の永続化
 
 しかし、**ターミナルを閉じて再度開く**と、また認証エラーが発生する。
 
@@ -277,7 +281,7 @@ echo 'export OPENAI_API_KEY="your-api-key-here"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-#### ⚠️ セキュリティ上の注意
+### ⚠️ セキュリティ上の注意
 
 APIキーを`.zshrc`に記載すると、キーが漏洩する危険があるので注意。
 
@@ -307,13 +311,13 @@ APIキーを`.zshrc`に記載すると、キーが漏洩する危険があるの
 
 ## 8. ターミナルからCLIをインストールして操作してみる
 
-### 目的
+### CLIを学ぶ目的
 
 - CLIを入れると社内外ツールとすぐ連携できることを理解する
 - CursorからCLIを実行できることを理解する
 - CLIが提供されているものはCursorから操作できることを理解する
 
-### 演習手順
+### CLIをインストールして操作する手順
 
 1. Homebrew導入状況を`brew -v`で確認
 2. `brew install gh`
@@ -325,7 +329,7 @@ APIキーを`.zshrc`に記載すると、キーが漏洩する危険があるの
 
 ## 9. ターミナルからCodex CLIを使ってみる
 
-### 目的
+### Codex CLIを学ぶ目的
 
 - Codex CLIを起動して、ターミナルから対話的にコーディング補助を受ける
 - 自然言語で指示を出し、コード生成や変更ができることを体験する
@@ -339,10 +343,10 @@ APIキーを`.zshrc`に記載すると、キーが漏洩する危険があるの
 
 参考:
 
-- https://openai.com/ja-JP/codex/
-- https://platform.openai.com/docs/codex
+- <https://openai.com/ja-JP/codex/>
+- <https://platform.openai.com/docs/codex>
 
-### 演習手順
+### Codex CLIを使ってみる手順
 
 1. **Codexのインストール確認**
 
