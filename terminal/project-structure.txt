@@ -1,0 +1,110 @@
+🖥️ ファイルシステムの全体構造（階層学習用シンプル版）
+
+/                               ← ルートディレクトリ（最上位）
+├── 📁 Users/
+│   ├── 📁 [username]/          ← ユーザーのホームディレクトリ
+│   │   ├── 📁 Desktop/
+│   │   ├── 📁 Documents/
+│   │   └── 📁 project/         ← 開発プロジェクト
+│   │       ├── 📄 README.md           
+│   │       ├── 📁 src/                # ソースコード
+│   │       │   ├── 📄 index.js        
+│   │       │   ├── 📁 components/     # UIコンポーネント
+│   │       │   │   └── 📄 Header.js
+│   │       │   └── 📁 styles/         # スタイルシート
+│   │       │       └── 📄 main.css
+│   │       ├── 📁 public/             # 公開ファイル
+│   │       │   ├── 📄 index.html
+│   │       │   └── 📁 images/
+│   │       │       └── 📄 logo.png
+│   │       ├── 📁 tests/              # テストコード
+│   │       │   ├── 📄 App.test.js
+│   │       │   └── 📁 unit/           # 単体テスト
+│   │       │       └── 📄 helpers.test.js
+│   │       └── 📁 docs/               # ドキュメント
+│   │           └── 📄 API.md
+│   └── 📁 guest/
+├── 📁 Applications/
+├── 📁 System/
+└── 📁 etc/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 階層の深さを理解する
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+階層レベル：
+レベル0: /                              (ルート)
+レベル1: /Users                
+レベル2: /Users/[username]              (ホーム)
+レベル3: /Users/[username]/project 
+レベル4: /Users/[username]/project/src
+レベル5: /Users/[username]/project/src/components
+レベル6: /Users/[username]/project/src/components/Header.js
+
+最深部までのパス例：
+/Users/[username]/project/tests/unit/helpers.test.js (6階層)
+/Users/[username]/project/public/images/logo.png     (6階層)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📍 パス移動の練習（projectフォルダ内）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+現在地: /Users/[username]/project
+
+【1階層下へ移動】
+$ cd src
+→ /Users/[username]/project/src
+
+【2階層下へ移動】
+$ cd src/components
+→ /Users/[username]/project/src/components
+
+【1階層上へ移動】
+$ cd ..
+→ /Users/[username]/project/src
+
+【2階層上へ移動】
+$ cd ../..
+→ /Users/[username]/project
+
+【横移動（同じ階層の別フォルダ）】
+現在地: /Users/[username]/project/src
+$ cd ../public
+→ /Users/[username]/project/public
+
+【絶対パスで直接移動】
+$ cd /Users/[username]/project/tests/unit
+→ /Users/[username]/project/tests/unit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔄 相対パスの計算方法
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FROM: /Users/[username]/project/src/components
+TO:   /Users/[username]/project/tests/unit
+
+ステップ1: 共通の親を見つける → /Users/[username]/project
+ステップ2: 現在地から親まで上る → ../.. (2階層上)
+ステップ3: 親から目的地へ下る → tests/unit
+
+答え: ../../tests/unit
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 練習問題（階層移動）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Q1: /Users/[username]/project/public/images から
+    /Users/[username]/project/src への相対パスは？
+    答え: ../../src
+
+Q2: /Users/[username]/project/src/styles から
+    /Users/[username]/project/docs への相対パスは？
+    答え: ../../docs
+
+Q3: /Users/[username]/project/tests/unit から
+    ホームディレクトリ(/Users/[username])への相対パスは？
+    答え: ../../..
+
+Q4: 現在地が /Users/[username]/project/src/components の時、
+    logo.png ファイルへの相対パスは？
+    答え: ../../public/images/logo.png
