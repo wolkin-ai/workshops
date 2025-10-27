@@ -30,9 +30,22 @@ Finderの下にフォルダの階層が表示されるようにする方法：
 
 1. Finderを開き、メニューバーの「表示/View」>「パスバー/ Show Path Bar」をチェックを入れます。
 
+## 4. ターミナル基礎ハンズオン
+
 ### ホームディレクトリにproject.zipを配置、解凍する
 
-## 4. ターミナル基礎ハンズオン
+以下のリンクから`project.zip`をダウンロードし、ホームディレクトリに配置して解凍します：
+
+[**ダウンロードリンク**](https://drive.google.com/file/d/1KHhMf7v8HBEXP0GGAHg_5gRPemnEe2CO/view?usp=sharing)
+
+手順：
+
+1. 上記リンクから`project.zip`をダウンロードする
+2. Finderでホームディレクトリ（家のアイコン）を開く
+3. ダウンロードした`project.zip`をホームディレクトリにドラッグ&ドロップする
+4. `project.zip`をダブルクリックして解凍する
+
+### シェルとパスの考え方
 
 - シェルとパスの考え方を図で説明
 [シェルとパスの考え方](https://claude.ai/public/artifacts/8854d550-8a60-4cba-b7e4-7bb8513727c4)
@@ -341,7 +354,7 @@ APIキーを`.zshrc`に記載すると、キーが漏洩する危険があるの
 - ローカルのリポジトリやファイルに対して、指示に基づく提案・変更を対話的に行う
 - 初回起動時にブラウザでサインインし、すぐに使い始められる
 
-参考:
+参考: 
 
 - <https://openai.com/ja-JP/codex/>
 - <https://platform.openai.com/docs/codex>
