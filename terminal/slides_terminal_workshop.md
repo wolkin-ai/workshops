@@ -122,7 +122,7 @@ Finderの下にフォルダの階層が表示されるようにする方法：
 1. **メニューから開く**
    - メニューバーの「View」→「Terminal」を選択
 2. **ショートカットキーで開く**
-   - `Ctrl + `` (バッククォート) または`Ctrl + J` を押す
+   - ``Ctrl + Shift + ` (バッククォート)`` または `Ctrl + J` を押す
 3. **コマンドパレットから開く**
    - `Cmd + Shift + P` (Mac) または `Ctrl + Shift + P` (Windows/Linux) でコマンドパレットを開く
    - 「Terminal」と入力して「View: Toggle Terminal」を選択
